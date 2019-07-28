@@ -1,0 +1,14 @@
+@import "./reset.css";
+@import "./bootstrap-card.css";
+@import "./prism.css";
+@import "./ionicons.min.css";
+@import "./compodoc.css";
+@import "./tablesort.css";
+
+body, .language-html, .language-typescript {
+    font-size: 16px;
+}
+
+.img-thumbnail {
+    border: 2px solid #ddd;
+}
