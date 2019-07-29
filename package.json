@@ -13,7 +13,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compodoc": "./node_modules/.bin/compodoc -p tsconfig.app.json -s --port=4400",
-    "ghpages": "ng build --prod --base-href https://jonathannieto.github.io/guiaangular/ && npx ngh --dir=dist/guiaangular",
+    "ghpages": "ng build --prod --base-href https://jonathannieto.github.io/guiaangular/ --output-path docs",
     "deploy": "npx ngh --dir=dist/guiaangular"
   },
   "private": true,
