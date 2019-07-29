@@ -1,0 +1,19 @@
+<header>Directivas *ngIf y *ngFor</header>
+<p>Las directivas *ngIf y *ngFor son atributos que podemos agregarle a los elementos HTML que nos permiten en el caso del *ngIf condicionar si dicha marca debe agregarse a la página HTML.</p>
+<p>La directiva *ngFor nos permite generar muchos elementos HTML repetidos a partir del recorrido de un arreglo de datos.</p>
+
+<header>*ngFor</header>
+<p>Una directiva estructural que representa una plantilla para cada elemento de una colección. La directiva se coloca en un elemento, que se convierte en el padre de las plantillas clonadas.</p>
+<pre class="line-numbers"><code class="language-html" [innerHtml]="ngifCode"></code>
+</pre>
+
+<header>*ngIf</header>
+<p>Una directiva estructural que incluye condicionalmente una plantilla basada en el valor de una expresión obligada a Boolean. Cuando la expresión se evalúa como verdadera, Angular representa la plantilla proporcionada en una cláusula then, y cuando es falsa o nula, Angular representa la plantilla proporcionada en una cláusula else opcional. La plantilla predeterminada para la cláusula else está en blanco.</p>
+<pre class="line-numbers">
+<code class="language-html">&lt;div *ngIf="heroe.casa === 'Marvel';else DC"&gt;
+    &lt;img src="./assets/img/marvel.png" class="img-fluid" alt="Marvel"&gt;
+&lt;/div&gt;
+&lt;div *ngIf="condition; else elseBlock"&gt;Content to render when condition is true.&lt;/div&gt;
+&lt;ng-template #elseBlock&gt;Content to render when condition is false.&lt;/ng-template&gt;</code>
+</pre>
+

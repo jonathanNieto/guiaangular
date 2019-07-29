@@ -1,0 +1,225 @@
+<header>Pipes</header>
+<table class="table">
+    <thead>
+        <tr class="d-flex">
+            <th class="col-3">Variable</th>
+            <th class="col-3">Resultado</th>
+            <th class="col-6 text-center">Uso / Pipe</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{name}}</td>
+            <td class="col-3 align-middle">{{name | uppercase }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeUppercaseCode"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{name}}</td>
+            <td class="col-3 align-middle">{{name | lowercase }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeLowercaseCode"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{fullName}}</td>
+            <td class="col-3 align-middle">{{ fullName | titlecase }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeTitlecaseCode"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{name}}</td>
+            <td class="col-3 align-middle">{{name | slice:3 }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeSlice1Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{name}}</td>
+            <td class="col-3 align-middle">{{name | slice:0:3 }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeSlice2Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{numArray}}</td>
+            <td class="col-3 align-middle">
+                <ul>
+                    <li *ngFor="let num of numArray | slice:5:9">{{num}}</li>
+                </ul>
+            </td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeSlice2Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{PI}}</td>
+            <td class="col-3 align-middle">{{PI | number:'3.0-0' }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeNumber1Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{PI}}</td>
+            <td class="col-3 align-middle">{{PI | number:'1.0-5' }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeNumber2Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{numPercent}}</td>
+            <td class="col-3 align-middle">{{numPercent | percent }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipePercent1Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{numPercent}}</td>
+            <td class="col-3 align-middle">{{numPercent | percent:'2.2-3' }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipePercent2Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{money}}</td>
+            <td class="col-3 align-middle">{{money | currency }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeCurrency1Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{money}}</td>
+            <td class="col-3 align-middle">{{money | currency:'EUR' }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeCurrency2Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{money}}</td>
+            <td class="col-3 align-middle">{{money | currency:'EUR':'symbol-narrow':'4.0-1' }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeCurrency3Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle text-justify">promiseValue</td>
+            <td class="col-3 align-middle">{{promiseValue | async }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeAsyncCode"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">new Date()</td>
+            <td class="col-3 align-middle">{{myDate | date }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeDate1Code"></code></pre>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">new Date()</td>
+            <td class="col-3 align-middle">{{myDate | date:'dd - MMMM - yyyy' }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeDate2Code"></code></pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<header>Json Pipe</header>
+<pre class="line-numbers"><code class="language-html" [innerHTML]="pipeJsonCode"></code></pre>
+<pre class="line-numbers"><code class="language-html">{{obj | json }}</code></pre>
+
+<header>Date Pipe</header>
+<h5>Cambiar pipe de Fecha a español</h5>
+<p class="my-3">Para cambiar las fechas de Inglés a Español es necesario realizar algunas configuraciones:</p>
+<ul class="list-group">
+    <li class="list-group-item">Importar LOCALE_ID en el archivo app.module.ts de @angular/core</li>
+    <li class="list-group-item">Realizar el llamado a la función: registerLocaleData(localeEs);, después de los imports.
+    </li>
+    <li class="list-group-item">Incluír en providers el siguiente código: {{'{'}} provide: LOCALE_ID, useValue: 'es'
+        {{'}'}}</li>
+</ul>
+
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="pipeDateCode"></code>
+</pre>
+
+<header>Crear nuestros propios pipes</header>
+<h4>Pipe 'capitalizado': este pipe tiene la misma funcionalidad que el pipe titlecase, solo sirve para ejemplificar como
+    podemos hacer nuestros propios pipes.</h4>
+<ul class="list-group my-3">
+    <li class="list-group-item">Crear un archivo para nuestro pipe: 'capitalizado.pipe.ts'</li>
+    <li class="list-group-item">Usar el snippet ng-pipe</li>
+    <li class="list-group-item">En 'name', escribir el nombre que queremos usar, 'capitalizado' en nuestro caso.</li>
+    <li class="list-group-item">En el nombre de la clase podemos escribir el mismo nombre del pipe seguido de la palabra
+        Pipe: 'CapitalizadoPipe' en nuestro caso.</li>
+    <li class="list-group-item">Importamos el pipe en el app.module.ts y lo escribimos en 'declarations'.</li>
+    <li class="list-group-item">Importamos registerLocaleData de @angular/common.</li>
+    <li class="list-group-item">Importamos localeEs de '@angular/common/locales/es'</li>
+    <li class="list-group-item">Hacemos el llamado a una función: registerLocaleData(localeEs);</li>
+    <li class="list-group-item">Finalmente editamos la función transform.</li>
+</ul>
+
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="pipeCapitalizado1Code"></code>
+</pre>
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="pipeCapitalizado2Code"></code>
+</pre>
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="pipeCapitalizado3Code"></code>
+</pre>
+<table class="table">
+    <thead>
+        <tr class="d-flex">
+            <th class="col-3">Variable</th>
+            <th class="col-3">Resultado</th>
+            <th class="col-6 text-center">Uso / Pipe</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="d-flex">
+            <td class="col-3 align-middle">{{fullName}}</td>
+            <td class="col-3 align-middle">{{ fullName | capitalizado }}</td>
+            <td class="col-6 align-middle">
+                <pre class="line-numbers"><code class="language-html" [innerHTML]="pipeCapitalizado4Code"></code></pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Pipe Dom Seguro</h4>
+<p class="my-3">Podemos crear un pipe desde la línea de comandos.</p>
+<pre class="line-numbers my-3">
+<code class="language-html">$ng generate pipe pipes/safe-dom
+$ng g p pipes/safe-dom</code>
+</pre>
+<ul class="list-group my-3">
+    <li class="list-group-item">Importamos DomSanitizer de @angular/platform-browser</li>
+    <li class="list-group-item">Inyectar un objeto domSanitizar en el constructor</li>
+    <li class="list-group-item">Finalmente editamos la función transform agregando el siguiente código.</li>
+    <li class="list-group-item">
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript">return this.domSanitizer.bypassSecurityTrustResourceUrl( url + value)</code>
+</pre>
+    </li>
+</ul>
+
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="pipeSafeDomCode"></code>
+</pre>
+<pre class="line-numbers my-3">
+<code class="language-html" [innerHTML]="pipeSafeDom2Code"></code>
+</pre>
+<iframe 
+    width="560" 
+    height="315" 
+    [src]="video | safeDom:'https://www.youtube.com/embed/'" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; 
+    encrypted-media; gyroscope; 
+    picture-in-picture" 
+    allowfullscreen>
+</iframe>

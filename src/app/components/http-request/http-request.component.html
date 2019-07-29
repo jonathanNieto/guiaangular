@@ -1,0 +1,37 @@
+<header>Peticiones Http</header>
+<ul class="list-group my-3">
+    <li class="list-group-item">En el app.module.ts importamos HttpClientModule</li>
+    <li class="list-group-item">
+        <pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="httpclientmoduleCode1"></code></pre>
+    </li>
+    <li class="list-group-item">Agregamos el modulo a imports</li>
+    <li class="list-group-item">
+        <pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="httpclientmoduleCode2"></code></pre>
+    </li>
+    <li class="list-group-item">Podemos trabajar y/o ocupar HttpClient desde el componente que deseamos ocupar, sin
+        embargo siempre será mejor trabajar desde un servicio. Importamos HttpClient, HttpHeaders y map (es muy común
+        trabajar con estos modulos)</li>
+    <li class="list-group-item">
+        <pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="httpclientCode1"></code></pre>
+    </li>
+    <li class="list-group-item">Si se van a relizar muchas peticiones a una misma url, estas se pueden centralizar. En caso de requerir alguna autorización (un token por ejemplo), aquí mismo se puede realizar.</li>
+    <li class="list-group-item">
+        <pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="httpclientCode2"></code></pre>
+    </li>
+    <li class="list-group-item">El resto es codificar nuestras peticiones http según nos convenga. Es una buena practica filtrar los resultados con el operador map.</li>
+</ul>
+
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="httprequestCode"></code></pre>
+
+<header>Suscribirse a peticiones http</header>
+<ul class="list-group">
+    <li class="list-group-item">Inyectamos el servicio en el constructor del componente desde donde vamos a realizar las peticiones http.</li>
+    <li class="list-group-item">Nos subscribimos a la petición y enseguida podemos realizar un manejo de error del lado del cliente.</li>
+</ul>
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="subscribeCode"></code></pre>

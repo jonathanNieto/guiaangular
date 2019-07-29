@@ -1,0 +1,13 @@
+<header>Rutas hijas</header>
+<div class="row my-3">
+    <div class="col-md-12 tex-center">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" routerLinkActive="active" [routerLink]="[ 'newUser']">Nuevo</button>
+            <button type="button" class="btn btn-secondary" routerLinkActive="active" [routerLink]="[ 'editUser']">Editar</button>
+            <button type="button" class="btn btn-secondary" routerLinkActive="active" [routerLink]="[ 'detailUser']">Detalle</button>
+        </div>
+    </div>
+</div>
+<div class="my-3">
+    <router-outlet></router-outlet>
+</div>

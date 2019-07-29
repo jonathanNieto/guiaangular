@@ -1,13 +1,20 @@
 {
-  "name": "guiaangular",
+  "name": "guia-angular",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://jonathannieto.github.io/guiaangular/"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.app.json -s --port=4400",
+    "ghpages": "ng build --prod --base-href https://jonathannieto.github.io/guiaangular/ && npx ngh --dir=dist/guiaangular",
+    "deploy": "npx ngh --dir=dist/guiaangular"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +26,8 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
+    "ng2-prism": "^2.3.2",
+    "prismjs": "^1.17.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -28,9 +37,11 @@
     "@angular/cli": "~8.1.2",
     "@angular/compiler-cli": "~8.1.2",
     "@angular/language-service": "~8.1.2",
-    "@types/node": "~8.9.4",
+    "@compodoc/compodoc": "^1.1.10",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "angular-cli-ghpages": "^0.5.3",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",

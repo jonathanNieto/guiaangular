@@ -1,0 +1,17 @@
+<!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The sidebar -->
+<div class="sidebar">
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/new-angular-project']"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/libraries']"><i class="fa fa-fw fa-book"></i> Bibliotecas de terceros</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/structural-directives']"><i class="fa fa-fw fa-recycle"></i> *ngIf & *ngFor</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/routes']"><i class="fa fa-fw fa-code-fork"></i> Rutas</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/user', 666]"><i class="fa fa-fw fa-code-fork"></i> Rutas hijas</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/services']"><i class="fa fa-fw fa-building"></i> Servicios</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/input-output']"><i class="fa fa-fw fa-exchange"></i> @Input / @Output</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/pipes']"><i class="fa fa-fw fa-clone"></i> Pipes</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/http-request']"><i class="fa fa-fw fa-internet-explorer"></i> Peticiones HTTP</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/miscellaneous']"><i class="fa fa-fw fa-users"></i> Misceláneos</a>
+  <a class="list-group-item list-group-item-action" routerLinkActive="active" [routerLink]="[ '/guards']"><i class="fa fa-fw fa-hand-paper-o"></i> Guards</a>
+</div>

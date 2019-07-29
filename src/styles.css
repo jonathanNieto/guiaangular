@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+/* compodoc */
+body, .language-html, .language-typescript {
+    font-size: 16px;
+}
+
+.img-thumbnail {
+    border: 2px solid #ddd;
+}
+ 
+body {
+    background: whitesmoke;
+    font-family: "Open Sans", Arial, sans-serif;
+    line-height: 1.5;
+    color: #4d4e53;
+    margin-bottom: 50px;
+}
+
+header {
+    color: black;
+    margin: 10px;
+    text-align: left;
+    font-size: 1.8em;
+    font-weight: thin;
+}
+
+img {
+    width: auto;
+}
+
+.main {
+    margin-left: 190px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+}
+  
+/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+.sidebar .list-group-item{
+    background: #222222;
+}
+
+.sidebar .list-group-item:hover{
+    background: #007bff;
+}
+
+.sidebar .active {
+    background: #007bff;
+}

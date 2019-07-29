@@ -1,0 +1,75 @@
+<header>Rutas en Angular</header>
+<p>Para trabajar con rutas, es necesario crear un archivo app.routing.ts o app.routes.ts en la raíz de nuestro proyecto. Podemos crear desde consola o usando nuestro editor de texto.</p>
+<pre class="line-numbers">
+<code class="language-html">$touch src/app/app.routing.ts</code>
+</pre>
+
+<p>Después de crear el archivo de rutas, procedemos a importarlo en el app.module.ts y lo declaramos en la sección de imports. Posteriormente editamos el archivo de rutas de acuerdo a nuestros requerimientos. Finalmente en el archivo app.componet.html, escribimos: &lt;router-outlet&gt;&lt;/router-outlet&gt; para que nuestra aplicación haga uso de las rutas.</p>
+
+<div class="bd-example my-3">
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://res.cloudinary.com/dbk0ntcaf/image/upload/v1564243346/guia-angular/app.routing-0_kpm8wk.png" class="img-thumbnail" alt="Responsive image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>app.routing.ts</h5>
+                    <p>Crear archivo de rutas</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://res.cloudinary.com/dbk0ntcaf/image/upload/v1564243353/guia-angular/app.routing-1_skkyvi.png" class="img-thumbnail" alt="Responsive image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>app.routing.ts</h5>
+                    <p>Importar archivo de rutas en app.module.ts</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://res.cloudinary.com/dbk0ntcaf/image/upload/v1564243348/guia-angular/app.routing-2_g72jio.png" class="img-thumbnail" alt="Responsive image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>app.routing.ts</h5>
+                    <p>Editar el archivo de rutas</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://res.cloudinary.com/dbk0ntcaf/image/upload/v1564243347/guia-angular/app.routing-3_ntpegv.png" class="img-thumbnail" alt="Responsive image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>app.routing.ts</h5>
+                    <p>&lt;router-outlet&gt;&lt;/router-outlet&gt;</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="code"></code>
+</pre>
+
+<header>RouterLink & RouterLinkActive</header>
+<pre class="line-numbers my-3">
+<code class="language-html">&lt;a [routerLink]="[ '/path' ]" routerLinkActive="active"&gt;name&lt;/a&gt;</code>
+</pre>
+
+<header>Recibir parámetros por URL</header>
+<ul class="list-group">
+    <li class="list-group-item bg-ligth">Importar ActivatedRoute de @angular/core.</li>
+    <li class="list-group-item bg-ligth">Declarar las variables y/o constantes que vamos a recibir.</li>
+    <li class="list-group-item bg-ligth">Suscribirse al observable params en el constructor.</li>
+</ul>
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="codeParams"></code>
+</pre>
