@@ -8,10 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NewUserComponent implements OnInit {
 
+  id: string;
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.parent.params.subscribe((params) => {
-      console.log('ruta hija');
-      console.log(params);
+      this.id = params.id;
     });
   }
 

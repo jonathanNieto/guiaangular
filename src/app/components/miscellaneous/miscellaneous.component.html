@@ -1,16 +1,16 @@
 <header>ngStyle</header>
 <p [ngStyle]="{'font-size': '50px'}">Hola mundo ... esta es una etiqueta html</p>
-<h3 [style.fontSize.px]="size">Hola ... esta es otra etiqueta html</h3>
+<h3 [style.fontSize.px]="sizeFont">Hola ... esta es otra etiqueta html</h3>
 <h3 [style.color]="'blue'">Hola ... esta es otra etiqueta html</h3>
 <p [ngStyle]="{'font-style': 'italic'}">... Lorem ipsum dolor sit, aperiam dolores nostrum! ...</p>
 <div [ngStyle]="{'background-color':'green'}">Some words are here</div>
 <pre class="line-numbers my-3"><code class="language-html" [innerHtml]="ngstyleCode"></code></pre>
 
-<p [style.fontSize.px]="size">Cambiar tamaño de la fuente</p>
 <button type="button" class="btn btn-primary btn-sm mr-2" (click)="size = size + 5"><i class="fa fa-plus"
         aria-hidden="true"></i></button>
 <button type="button" class="btn btn-primary btn-sm mr-2" (click)="size = size - 5 ? size - 5 : 10"><i
         class="fa fa-minus" aria-hidden="true"></i></button>
+<p [style.fontSize.px]="size">Cambiar tamaño de la fuente</p>
 <pre class="line-numbers my-3"><code class="language-html" [innerHtml]="ngstyleCode1"></code></pre>
 
 <header>ngClass</header>
@@ -45,8 +45,7 @@
 <pre class="line-numbers my-3"><code class="language-typescript" [innerHtml]="asyncprocessCode2"></code></pre>
 
 <header>Directivas personalizadas</header>
-<p appResaltado class="p-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime praesentium nam deserunt
-    sint minus rem.</p>
+<p appResaltado class="p-3">Este parrafo contiene una directiva personalizada, pasa el mouse sobre el parrafo para ver como funciona.</p>
 <ul class="list-group my-3">
     <li class="list-group-item">Crear una directiva desde línea de comandos.</li>
     <li class="list-group-item">
