@@ -11,6 +11,7 @@ import { HighlightService } from 'src/app/services/highlight.service';
 export class MiscellaneousComponent implements OnInit, AfterViewChecked {
 
   size = 10;
+  sizeFont = 10;
   ngstyleCode = `&lt;p [ngStyle]="{'font-size': '50px'}"&gt;Hola mundo ... esta es una etiqueta html&lt;/p&gt;
 &lt;h3 [style.fontSize.px]="size"&gt;Hola ... esta es otra etiqueta html&lt;/h3&gt;
 &lt;h3 [style.color]="'blue'"&gt;Hola ... esta es otra etiqueta html&lt;/h3&gt;
