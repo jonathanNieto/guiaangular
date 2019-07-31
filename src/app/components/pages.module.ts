@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { PagesComponent } from './pages.component';
 
 /* modules */
@@ -24,6 +23,7 @@ import { NewUserComponent } from './user/new-user.component';
 import { EditUserComponent } from './user/edit-user.component';
 import { DetailUserComponent } from './user/detail-user.component';
 import { GuardsComponent } from './guards/guards.component';
+import { ModulesComponent } from './modules/modules.component';
 
 /* pipes */
 import { CapitalizadoPipe } from '../pipes/capitalizado.pipe';
@@ -34,6 +34,9 @@ import { ResaltadoDirective } from '../directives/resaltado.directive';
 
 /* routing */
 import { PagesRoutingModule } from './pages.routing';
+import { FormsComponent } from './forms/forms.component';
+import { TemplateComponent } from './forms/template.component';
+import { DataComponent } from './forms/data.component';
 
 @NgModule({
     declarations: [
@@ -55,27 +58,13 @@ import { PagesRoutingModule } from './pages.routing';
         EditUserComponent,
         DetailUserComponent,
         GuardsComponent,
+        ModulesComponent,
+        FormsComponent,
+        TemplateComponent,
+        DataComponent,
     ],
     imports: [CommonModule, SharedModule, FormsModule, RouterModule, HttpClientModule, PagesRoutingModule],
-    exports: [
-        NewProjectComponent,
-        LibrariesComponent,
-        MiscellaneousComponent,
-        RoutesComponent,
-        ServicesComponent,
-        InputOutputComponent,
-        PipesComponent,
-        HttpRequestComponent,
-        StructuralDirectivesComponent,
-        CapitalizadoPipe,
-        SafeDomPipe,
-        ResaltadoDirective,
-        UserComponent,
-        NewUserComponent,
-        EditUserComponent,
-        DetailUserComponent,
-        GuardsComponent,
-    ],
+    exports: [],
     providers: [],
 })
 export class PagesModule { }

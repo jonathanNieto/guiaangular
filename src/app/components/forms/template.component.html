@@ -1,0 +1,148 @@
+<header>Aproximación por template</header>
+<ul class="list-group my-3">
+    <li class="list-group-item">Al usar ngModel, es necesario también usar la propiedad name en un input.</li>
+    <li class="list-group-item">El valor del input del formulario se puede asociar de ida y vuelta con [(ngModel)].</li>
+    <li class="list-group-item">Las validaciones ocurren dentro del código html, puede considerarse una desventaja ya
+        que toda la lógica se encuentra expuesta.</li>
+    <li class="list-group-item">Podemos hacer referencia al formulario entero de esta manera: &lt;form
+        #templateForm="ngForm"&gt; </li>
+    <li class="list-group-item">Ahora con templateForm, tenemos acceso al formulario entero.</li>
+    <li class="list-group-item">De manera similar podemos hacer referencia a un input de la siguiente manera: &lt;input
+        [(ngModel)]="user.name" name="name" type="text" class="form-control" placeholder="First name"
+        #thisname="ngModel"&gt;</li>
+    <li class="list-group-item">Con thisname podemos acceder a todas las propiedades disponibles del input.</li>
+</ul>
+<form class="needs-validation" novalidate #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm)">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom01">First name</label>
+            <input [(ngModel)]="user.name" name="name" type="text" class="form-control" placeholder="First name"
+                minlength="3" required #thisname="ngModel">
+            <span
+                *ngIf="(thisname.touched && thisname.errors?.required) || (templateForm.submitted && thisname.errors?.required)"
+                class="animated fadeIn text-danger">
+                Please type your name.
+            </span>
+            <span
+                *ngIf="(thisname.touched && thisname.errors?.minlength) || (templateForm.submitted && thisname.errors?.minlength)"
+                class="animated fadeIn text-danger">
+                At least {{thisname.errors.minlength.requiredLength}} characters.
+            </span>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom02">Last name</label>
+            <input [(ngModel)]="user.lastname" name="lastname" type="text" class="form-control" placeholder="Last name"
+                minlength="3" required #lastname="ngModel">
+            <span
+                *ngIf="(lastname.touched && lastname.errors?.required) || (templateForm.submitted && lastname.errors?.required)"
+                class="animated fadeIn text-danger">
+                Please type your lastname.
+            </span>
+            <span
+                *ngIf="(lastname.touched && lastname.errors?.minlength) || (templateForm.submitted && lastname.errors?.minlength)"
+                class="animated fadeIn text-danger">
+                At least {{lastname.errors.minlength.requiredLength}} characters.
+            </span>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustomUsername">Email</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input [(ngModel)]="user.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    type="text" class="form-control" placeholder="Email" minlength="3"
+                    aria-describedby="inputGroupPrepend" required #thisemail="ngModel">
+            </div>
+            <span
+                *ngIf="(thisemail.touched && thisemail.errors?.required) || (templateForm.submitted && thisemail.errors?.required)"
+                class="animated fadeIn text-danger">
+                Please type your email.
+            </span>
+            <span
+                *ngIf="(thisemail.touched && thisemail.errors?.pattern) || (templateForm.submitted && thisemail.errors?.pattern)"
+                class="animated fadeIn text-danger">
+                Please type a valid email.
+            </span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom03">City</label>
+            <input [(ngModel)]="user.city" name="city" type="text" class="form-control" placeholder="City" required
+                #city="ngModel">
+            <span *ngIf="(city.touched && city.errors?.required) || (templateForm.submitted && city.errors?.required)"
+                class="animated fadeIn text-danger">
+                Please type your city.
+            </span>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom04">State</label>
+            <input [(ngModel)]="user.state" name="state" type="text" class="form-control" placeholder="State" required
+                #state="ngModel">
+            <span
+                *ngIf="(state.touched && state.errors?.required) || (templateForm.submitted && state.errors?.required)"
+                class="animated fadeIn text-danger">
+                Please provide a state.
+            </span>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Zip</label>
+            <input [(ngModel)]="user.codezip" name="codezip" type="text" class="form-control" placeholder="Zip" required
+                #codezip="ngModel">
+            <span
+                *ngIf="(codezip.touched && codezip.errors?.required) || (templateForm.submitted && codezip.errors?.required)"
+                class="animated fadeIn text-danger">
+                Please provide a valid zip.
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input [(ngModel)]="user.terms" name="terms" class="form-check-input" type="checkbox" required
+                #conditions="ngModel">
+            Agree to terms and conditions
+            <label class="form-check-label" for="invalidCheck">
+            </label>
+        </div>
+        <span
+            *ngIf="(conditions.touched && conditions.errors?.required) || (templateForm.submitted && conditions.errors?.required)"
+            class="animated fadeIn text-danger">
+            You must agree before submitting.
+        </span>
+    </div>
+    <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Country</label>
+            <select [(ngModel)]="user.country" name="country" class="custom-select my-1 mr-sm-2">
+                <option selected value="">Choose...</option>
+                <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
+            </select>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Gender</label>
+            <div class="form-check">
+                <input [(ngModel)]="user.gender" class="form-check-input" type="radio" name="gender" value="male"
+                    checked>
+                <label class="form-check-label">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input [(ngModel)]="user.gender" class="form-check-input" type="radio" name="gender" value="female">
+                <label class="form-check-label">
+                    Female
+                </label>
+            </div>
+        </div>
+    </div>
+    <button [disabled]="templateForm.invalid" class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+<pre class="my-3">
+<code class="text-white">{{user | json}}</code>
+</pre>
+
+<h4 class="my-3">Html de un formulario con aproximación por template.</h4>
+<pre class="line-numbers"><code class="language-html" [innerHtml]="codeTemplate1"></code></pre>
+<pre class="line-numbers"><code class="language-typescript" [innerHtml]="codeTemplate2"></code></pre>

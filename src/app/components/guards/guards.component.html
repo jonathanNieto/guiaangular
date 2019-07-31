@@ -1,2 +1,32 @@
 <header>Guards</header>
-<p>guards works!</p>
+<h4 class="my-3">Introdducción</h4>
+<p class="text-justify">Hay veces que queremos que determinadas áreas de nuestra aplicación web estén protegidas y solo puedan ser accedidas si el usuario ésta logueado (un panel de control por ejemplo) o incluso que solo puedan ser accedidas por determinados tipos de usuarios. Para conseguir esto con Angular se usan los guards. Los guards pueden ser extensibles para que permitan acceder bajo las condiciones que nosotros queramo, podemos incluso hacer peticiones a un backend antes de que el usuario entre en la página.</p>
+<p class="my-3">Dentro de los guards hay 4 tipos principales:</p>
+<ul class="list-group">
+    <li class="list-group-item">
+        CanActivate: Mira si el usuario puede acceder a una página determinada.
+    </li>
+    <li class="list-group-item">
+        CanActivateChild: Mira si el usuario puede acceder a las páginas hijas de una determinada ruta.
+    </li>
+    <li class="list-group-item">
+        CanDeactivate: Mira si el usuario puede salir de una página, es decir, podemos hacer que aparezca un mensaje, por ejemplo, de confirmación, si el usuario tiene cambios sin guardar.
+    </li>
+    <li class="list-group-item">
+        CanLoad: Sirve para evitar que la aplicación cargue los módulos perezosamente si el usuario no está autorizado a hacerlo.
+    </li>
+</ul>
+<h4 class="my-3">Cómo se crea un guard en Angular</h4>
+<p class="my-3 text-justify">Los guards se implementan para ser inyectandos por lo tanto tenemos que usar la etiqueta @Inyectable, como si fuera un servicio.</p>
+<p class="my-3 text-justify">Los guards devuelven true o false para permitir el paso o no de un usuario a la ruta. También pueden devolver un Observale o una Promise si el guard no puede responder inmediatamente y tiene que esperar.</p>
+<p class="my-3 text-justify">Vamos a crear un guard de ejemplo, que se encargue de hacer que una ruta solo pueda ser accedida si el usuario está logueado:</p>
+
+<h4 class="my-3">Archivo: auth.guard.ts</h4>
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="codeGuard0"></code>
+</pre>
+<h4 class="my-3">Archivo: pages.routing.ts</h4>
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="codeGuard1"></code>
+</pre>    
+<a href="https://codingpotions.com/angular-seguridad/" target="_blank" class="my-3">Enlace de interés</a>

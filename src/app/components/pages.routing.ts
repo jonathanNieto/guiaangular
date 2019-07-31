@@ -15,6 +15,10 @@ import { UserComponent } from './user/user.component';
 import { childRoutes } from './user/user.routing';
 import { GuardsComponent } from './guards/guards.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { ModulesComponent } from './modules/modules.component';
+import { FormsComponent } from './forms/forms.component';
+import { TemplateComponent } from './forms/template.component';
+import { DataComponent } from './forms/data.component';
 
 const routes: Routes = [
     {
@@ -37,6 +41,16 @@ const routes: Routes = [
                 children: childRoutes
             },
             { path: 'guards', component: GuardsComponent },
+            { path: 'modules', component: ModulesComponent },
+            {
+                path: 'forms', component: FormsComponent,
+                children: [
+                    {path: 'template', component: TemplateComponent},
+                    { path: 'data', component: DataComponent },
+                    { path: '', redirectTo: 'template', pathMatch: 'full' },
+                    
+                ]
+            },
             { path: '', redirectTo: 'new-angular-project', pathMatch: 'full' },
         ]
     },

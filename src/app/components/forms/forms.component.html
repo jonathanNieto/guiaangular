@@ -1,0 +1,10 @@
+<header>Formularios</header>
+<div class="text-center my-3">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a [routerLink]="[ 'template' ]" routerLinkActive="active" class="btn btn-primary">Aproximación por template</a>
+        <a [routerLink]="[ 'data' ]" routerLinkActive="active" class="btn btn-success">Aproximación por data</a>
+    </div>
+</div>
+<div class="animated fadeIn">
+    <router-outlet></router-outlet>
+</div>

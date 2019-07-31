@@ -29,10 +29,26 @@
 <code class="language-typescript" [innerHTML]="codeRoutes"></code>
 </pre>
 
-<header>Ejemplo rutas hijas(separadas en un archivo)</header>
+<header>Ejemplo rutas hijas separadas en un archivo (arreglo de rutas)</header>
 <pre class="line-numbers compodoc-sourcecode my-3">
 <code class="language-typescript" [innerHTML]="codeRoutes2"></code>
 </pre>
 <pre class="line-numbers compodoc-sourcecode my-3">
 <code class="language-typescript" [innerHTML]="codeRoutes3"></code>
 </pre>
+
+<header>Rutas hijas separadas en un archivo</header>
+<p class="my-3">Las rutas hijas están separadas en un archivo y exportadas como una clase: PagesRoutingModule e importadas en un modulo, pages.module.ts que a su vez está importado en el app.module.ts.</p>
+<h4 class="my-3">Archivo: pages.routing.ts</h4>
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="codeRoutes4"></code>
+</pre>
+<h4 class="my-3">Archivo: pages.module.ts</h4>
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="codeRoutes5"></code>
+</pre>
+<h4 class="my-3">Archivo: app.module.ts</h4>
+<pre class="line-numbers compodoc-sourcecode my-3">
+<code class="language-typescript" [innerHTML]="codeRoutes6"></code>
+</pre>
+    
