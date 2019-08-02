@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -16,12 +16,7 @@ import { RoutesComponent } from './routes/routes.component';
 import { ServicesComponent } from './services/services.component';
 import { InputOutputComponent } from './input-output/input-output.component';
 import { PipesComponent } from './pipes/pipes.component';
-import { HttpRequestComponent } from './http-request/http-request.component';
 import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
-import { UserComponent } from './user/user.component';
-import { NewUserComponent } from './user/new-user.component';
-import { EditUserComponent } from './user/edit-user.component';
-import { DetailUserComponent } from './user/detail-user.component';
 import { GuardsComponent } from './guards/guards.component';
 import { ModulesComponent } from './modules/modules.component';
 
@@ -34,9 +29,6 @@ import { ResaltadoDirective } from '../directives/resaltado.directive';
 
 /* routing */
 import { PagesRoutingModule } from './pages.routing';
-import { FormsComponent } from './forms/forms.component';
-import { TemplateComponent } from './forms/template.component';
-import { DataComponent } from './forms/data.component';
 
 @NgModule({
     declarations: [
@@ -48,22 +40,18 @@ import { DataComponent } from './forms/data.component';
         ServicesComponent,
         InputOutputComponent,
         PipesComponent,
-        HttpRequestComponent,
         StructuralDirectivesComponent,
         CapitalizadoPipe,
         SafeDomPipe,
         ResaltadoDirective,
-        UserComponent,
-        NewUserComponent,
-        EditUserComponent,
-        DetailUserComponent,
         GuardsComponent,
         ModulesComponent,
-        FormsComponent,
-        TemplateComponent,
-        DataComponent,
     ],
-    imports: [CommonModule, SharedModule, FormsModule, RouterModule, HttpClientModule, PagesRoutingModule],
+    imports: [
+        CommonModule, SharedModule, FormsModule,
+        RouterModule, HttpClientModule, ReactiveFormsModule,
+        PagesRoutingModule, 
+    ],
     exports: [],
     providers: [],
 })

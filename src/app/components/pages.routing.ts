@@ -9,16 +9,12 @@ import { RoutesComponent } from './routes/routes.component';
 import { ServicesComponent } from './services/services.component';
 import { InputOutputComponent } from './input-output/input-output.component';
 import { PipesComponent } from './pipes/pipes.component';
-import { HttpRequestComponent } from './http-request/http-request.component';
 import { MiscellaneousComponent } from './miscellaneous/miscellaneous.component';
-import { UserComponent } from './user/user.component';
-import { childRoutes } from './user/user.routing';
 import { GuardsComponent } from './guards/guards.component';
-import { AuthGuard } from '../guards/auth.guard';
 import { ModulesComponent } from './modules/modules.component';
-import { FormsComponent } from './forms/forms.component';
-import { TemplateComponent } from './forms/template.component';
-import { DataComponent } from './forms/data.component';
+
+/* guard */
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
     {
@@ -33,23 +29,23 @@ const routes: Routes = [
             { path: 'services', component: ServicesComponent },
             { path: 'input-output', component: InputOutputComponent },
             { path: 'pipes', component: PipesComponent },
-            { path: 'http-request', component: HttpRequestComponent },
+            {
+                path: 'http-request',
+                loadChildren: () => import('./http-request/http-request.module')
+                    .then(m => m.HttpRequestModule)
+            },
             { path: 'miscellaneous', component: MiscellaneousComponent },
             {
                 path: 'user/:id',
-                component: UserComponent,
-                children: childRoutes
+                loadChildren: () => import('./user/user.module')
+                    .then(m => m.UserModule)
             },
             { path: 'guards', component: GuardsComponent },
             { path: 'modules', component: ModulesComponent },
             {
-                path: 'forms', component: FormsComponent,
-                children: [
-                    {path: 'template', component: TemplateComponent},
-                    { path: 'data', component: DataComponent },
-                    { path: '', redirectTo: 'template', pathMatch: 'full' },
-                    
-                ]
+                path: 'forms',
+                loadChildren: () => import('./forms/forms.module')
+                    .then(m => m.MyFormsModule)
             },
             { path: '', redirectTo: 'new-angular-project', pathMatch: 'full' },
         ]
@@ -60,4 +56,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class PagesRoutingModule {}
+export class PagesRoutingModule { }

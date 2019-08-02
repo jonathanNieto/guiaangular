@@ -1,1 +1,228 @@
-<p>data works!</p>
+<header>Aproximación por data</header>
+<p class="my-3">Primeros pasos para trabajar con esta aproximación:</p>
+
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" novalidate>
+    <div formGroupName="fullName">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Name" formControlName="name"
+                    [ngClass]="{'is-invalid': ( 
+                            dataForm.get('fullName.name').touched && 
+                            (dataForm.get('fullName.name').errors?.required || dataForm.get('fullName.name').errors?.minlength) 
+                            ),
+                            'is-valid': (dataForm.get('fullName.name').touched && dataForm.get('fullName.name').valid)}">
+
+                <div class="animated fadeIn invalid-feedback">
+                    <span
+                        *ngIf="dataForm.get('fullName.name').touched && dataForm.get('fullName.name').errors?.required">Please
+                        type your name.</span>
+                    <span
+                        *ngIf="dataForm.get('fullName.name').touched && dataForm.get('fullName.name').errors?.minlength">At
+                        least
+                        {{dataForm.get('fullName.name').errors.minlength.requiredLength}} characters.</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Lastname</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" placeholder="Lastname" formControlName="lastname"
+                    [ngClass]="{'is-invalid': ( 
+                            dataForm.get('fullName.lastname').touched && 
+                            (dataForm.get('fullName.lastname').errors?.required || dataForm.get('fullName.lastname').errors?.minlength) 
+                            ),
+                            'is-valid': (dataForm.get('fullName.lastname').touched && dataForm.get('fullName.lastname').valid)}">
+
+                <div class="animated fadeIn invalid-feedback">
+                    <span
+                        *ngIf="dataForm.get('fullName.lastname').touched && dataForm.get('fullName.lastname').errors?.required">Please
+                        type your lastname.</span>
+                    <span
+                        *ngIf="dataForm.get('fullName.lastname').touched && dataForm.get('fullName.lastname').errors?.minlength">At
+                        least
+                        {{dataForm.get('fullName.lastname').errors.minlength.requiredLength}} characters.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" placeholder="Email" formControlName="email" [ngClass]="{'is-invalid': ( 
+                            dataForm.get('email').touched && 
+                            (dataForm.controls['email'].errors?.required || dataForm.controls['email'].errors?.pattern) 
+                            ),
+                            'is-valid': (dataForm.controls['email'].touched && dataForm.controls['email'].valid)}">
+
+            <div class="animated fadeIn invalid-feedback">
+                <span *ngIf="dataForm.controls['email'].touched && dataForm.controls['email'].errors?.required">Please
+                    type your email.</span>
+                <span *ngIf="dataForm.controls['email'].touched && dataForm.controls['email'].errors?.pattern">Please
+                    type
+                    a valid email.</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Email" formControlName="username" [ngClass]="{'is-invalid': ( 
+                            dataForm.get('username').touched && 
+                            (dataForm.get('username').errors?.required || dataForm.get('username').errors?.pattern || dataForm.get('username').errors?.exists) 
+                            ),
+                            'is-valid': (dataForm.get('username').touched && dataForm.get('username').valid)}">
+
+            <div class="animated fadeIn invalid-feedback">
+                <span *ngIf="dataForm.get('username').touched && dataForm.controls['email'].errors?.required">Please
+                    type your username.</span>
+                <span *ngIf="dataForm.get('username').touched && dataForm.get('username').errors?.exists">
+                    Username already exists.
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" placeholder="Password" formControlName="password"
+                [ngClass]="{'is-invalid': ( 
+                            dataForm.controls['password'].touched && 
+                            (dataForm.controls['password'].errors?.required || dataForm.controls['password'].errors?.minlength) 
+                            ),
+                            'is-valid': (dataForm.controls['password'].touched && dataForm.controls['password'].valid)}">
+
+            <div class="animated fadeIn invalid-feedback">
+                <span
+                    *ngIf="dataForm.controls['password'].touched && dataForm.controls['password'].errors?.required">Please
+                    type your password.</span>
+                <span
+                    *ngIf="dataForm.controls['password'].touched && dataForm.controls['password'].errors?.minlength">At
+                    least
+                    {{dataForm.controls['password'].errors.minlength.requiredLength}} characters.</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Confirm Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirm"
+                [ngClass]="{'is-invalid': ( 
+                            dataForm.get('confirm').touched && 
+                            (dataForm.get('confirm').errors?.required || dataForm.get('confirm').errors?.minlength || dataForm.get('confirm').errors?.notEqual) 
+                            ),
+                            'is-valid': (dataForm.get('confirm').touched && dataForm.get('confirm').valid)}">
+
+            <div class="animated fadeIn invalid-feedback">
+                <span *ngIf="dataForm.get('confirm').touched && dataForm.get('confirm').errors?.required">Please
+                    type your confirm.</span>
+                <span *ngIf="dataForm.get('confirm').touched && dataForm.get('confirm').errors?.minlength">At
+                    least
+                    {{dataForm.get('confirm').errors.minlength.requiredLength}} characters.</span>
+                <span *ngIf="dataForm.get('confirm').touched && dataForm.get('confirm').errors?.notEqual">
+                    Password and confirm password are not equal.
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Hobbies</label>
+        <div class="col-sm-8" formArrayName="hobbies">
+            <input *ngFor="let hobbie of dataForm.get('hobbies')['controls']; let i = index" type="text"
+                class="form-control mb-3" formControlName={{i}}>
+        </div>
+        <div class="col-sm-1">
+            <button (click)="addHobbie()" type="button" class="btn btn-primary">Nuevo</button>
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button [disabled]="!dataForm.valid" type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </div>
+</form>
+
+<div *ngIf="dataForm.valid" class="alert bg-success text-white" role="alert">
+    This form is valid!
+</div>
+<div *ngIf="!dataForm.valid" class="alert bg-danger text-white" role="alert">
+    This form is invalid!
+</div>
+<div *ngIf="dataForm.status === 'VALID'" class="alert bg-success text-white" role="alert">
+    Status: {{dataForm.status}}
+</div>
+<div *ngIf="dataForm.status === 'INVALID'" class="alert bg-danger text-white" role="alert">
+    Status: {{dataForm.status}}
+</div>
+<div *ngIf="dataForm.status === 'PENDING'" class="alert bg-info text-white" role="alert">
+    Status: {{dataForm.status}}
+</div>
+
+<ul class="my-3 list-group">
+    <li class="list-group-item">Importar FormGroup, FormControl y Validators de '@angular/forms' en el componente que
+        estamos trabajando.</li>
+    <li class="list-group-item">Importar ReactiveFormsModule de '@angular/forms' en el archivo .module.ts más proximo a
+        nuestro componente.</li>
+    <li class="list-group-item">En nuestra clase declaramos un objeto de tipo FormGroup e inicializamos el objeto en el
+        constructor.</li>
+    <li class="list-group-item">
+        <pre class="line-numbers">
+<code class="language-typescript" [innerHtml]="codeDataForm0"></code></pre>
+    </li>
+    <li class="list-group-item">Del lado del código html, le indicamos a angular la relación entre nuestro objeto y el
+        formulario.</li>
+    <li class="list-group-item">
+        <pre class="line-numbers">
+<code class="language-html" [innerHtml]="codeDataForm1"></code></pre>
+    </li>
+    <li class="list-group-item">Para enlazar inputs a propiedades del objeto FormGroup, utilizamos del lado del html la
+        propiedad formControlName.</li>
+    <li class="list-group-item">
+        <pre class="line-numbers">
+<code class="language-html" [innerHtml]="codeDataForm2"></code></pre>
+    </li>
+    <li class="list-group-item">Para las validaciones de los inputs, del lado de nuestra clase en la inicialización del
+        objeto, utilizamos los validators.</li>
+    <li class="list-group-item">
+        <pre class="line-numbers">
+<code class="language-typescript" [innerHtml]="codeDataForm3"></code></pre>
+    </li>
+    <li class="list-group-item">Para validaciones del lado del html y como ayuda visual al usuario para indicar que es
+        lo que está incorrecto, podemos utilizar clases de bootstrap, ngClass y ngIf's.</li>
+    <li class="list-group-item">
+        <pre class="line-numbers">
+<code class="language-html" [innerHtml]="codeDataForm4"></code></pre>
+    </li>
+    <li class="list-group-item">Para validaciones personalizadas, podemos crear funciones, por ejemplo para validar que
+        dos inputs de contraseña sean iguales.</li>
+    <li class="list-group-item">
+        <pre class="line-numbers">
+<code class="language-typescript" [innerHtml]="codeDataForm5"></code></pre>
+    </li>
+    <li class="list-group-item">Dentro de los validadores, indicamos que vamos a usar nuestra función. Hay que tener cuidado aquí ya que el objeto this sale del scope de nuestra función, por lo que tenemos que indicarle explicitamente a que nos referimos con this (dataForm en nuestro caso), nos auxiliamos de bind.</li>
+    <li class="list-group-item">
+        <pre class="line-numbers">
+<code class="language-typescript" [innerHtml]="codeDataForm5"></code></pre>
+    </li>
+    <li class="list-group-item">
+        <pre class="line-numbers">
+<code class="language-typescript" [innerHtml]="codeDataForm6"></code></pre>
+    </li>
+    <li class="list-group-item">Validaciones asíncronas: estas nos pueden ser de gran ayuda por ejemplo para validar si un usario ya exitse en la base de datos. Con esto podemos saber si nuestro formulario es valido antes de enviarlo para ser procesado.</li>
+    <li class="list-group-item">
+            <pre class="line-numbers">
+<code class="language-typescript" [innerHtml]="codeDataForm7"></code></pre>
+        </li>
+        <li class="list-group-item">
+            <pre class="line-numbers">
+<code class="language-typescript" [innerHtml]="codeDataForm8"></code></pre>
+        </li>
+</ul>
+
+<h4 class="my-3">Arhivo data.component.html</h4>
+<pre class="line-numbers">
+<code class="language-html" [innerHtml]="codeDataForm9"></code></pre>
+<h4 class="my-3">Arhivo data.component.ts</h4>
+<pre class="line-numbers">
+<code class="language-typescript" [innerHtml]="codeDataForm10"></code></pre>

@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app.routing';
 /* services */
 import { ScriptService } from './services/script.service';
 import { HighlightService } from './services/highlight.service';
+import { HeroeService } from './services/heroe.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -38,6 +39,7 @@ registerLocaleData(localeEs);
   providers: [
     HighlightService,
     ScriptService,
+    HeroeService,
     { provide: LOCALE_ID, useValue: 'es'}
   ],
   bootstrap: [AppComponent]

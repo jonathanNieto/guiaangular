@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../models/user.model';
 import { map } from 'rxjs/operators';
 import { stringify } from 'querystring';
+import { delay } from 'q';
 
 
 @Injectable({
@@ -24,11 +25,8 @@ export class AuthService {
       ...user,
       returnSecureToken: true
     };
-
-    return this.http.post(
-      `${this.url}signInWithPassword?key=${this.apiKey}`,
-      authData
-    ).pipe(
+    const url = `${this.url}signInWithPassword?key=${this.apiKey}`;
+    return this.http.post( url, authData).pipe(
       map((resp) => {
         this.saveToken(resp['idToken'], resp['expiresIn']);        
         return resp;
